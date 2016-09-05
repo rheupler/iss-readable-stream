@@ -26,9 +26,9 @@ sampleStream.on('readable', function(){
 });
 
 ```
-## API Usage
+#### API Usage
 
-### I'm using api.wheretheiss.at to retrieve satellite information.
+I'm using api.wheretheiss.at to retrieve satellite information.
 
 ## Legal
 
