@@ -24,9 +24,13 @@ sampleStream.on('readable', function(){
     console.log(chunk);
   }
 });
-```
 
-## Legal 
+```
+## API Usage
+
+### I'm using api.wheretheiss.at to retrieve satellite information.
+
+## Legal
 
 This software is licensed under the MIT license.
 
