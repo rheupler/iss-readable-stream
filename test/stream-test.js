@@ -5,7 +5,7 @@ describe('LocationStream', function() {
   var sampleStream = new LocationStream(25544, 2);
 
   it('should be a subclass from stream.Readable', function() {
-    assert.equal(testStream1 instanceof stream.Readable, true);
+    assert.equal(sampleStream instanceof stream.Readable, true);
   });
 
   it('show error if no parameters are given', function () {
@@ -25,6 +25,31 @@ describe('LocationStream', function() {
       let newStream = new LocationStream(25544, "Number");
     }, Error);
   });
+}
 
+describe('DeltaStream', function() {
+  var sampleStream = new DeltaStream(25544, 2);
+
+  it('should be a subclass from stream.Readable', function() {
+    assert.equal(sampleStream instanceof stream.Readable, true);
+  });
+
+  it('show error if no parameters are given', function () {
+    assert.throws(function () {
+      let newStream = new DeltaStream();
+    }, Error);
+  });
+
+  it('should give error if ID of stream is not a number', function() {
+    assert.throws(function () {
+      let newStream = new DeltaStream("Number", 2);
+    }, Error);
+  });
+
+  it('should give error if frequency of stream is not a number', function() {
+    assert.throws(function () {
+      let newStream = new DeltaStream(25544, "Number");
+    }, Error);
+  });
 
 }
