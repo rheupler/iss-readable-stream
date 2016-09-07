@@ -11,21 +11,24 @@
 2. If you wish you create your own, touch new file and import require location.js file
 ```javascript
 var LocationStream = require('../lib/location');
+var DeltaStream = require('../lib/transform');
+var sampleStreamDelta = new DeltaStream(25544, 2);
+var sampleStreamLocation = new LocationStream(25544, 2);
 
-var sampleStream = new LocationStream(25544, 2);
+sampleStreamDelta.setEncoding('utf8');
 
-sampleStream.setEncoding('utf8');
+sampleStreamDelta.on('readable', function(){
 
-
-sampleStream.on('readable', function(){
-
-  var chunk = sampleStream.read();
+  var chunk = sampleStreamDelta.read();
   if (chunk !== null){
     console.log(chunk);
   }
 });
 
 ```
+You can use either sampleStreamLocation to view information about current ISS Location,
+or also use sampleStreamDelta to see difference in latitude and longitude
+
 #### API Usage
 
 I'm using api.wheretheiss.at to retrieve satellite information.
